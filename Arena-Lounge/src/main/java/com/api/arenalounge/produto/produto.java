@@ -5,28 +5,25 @@ import lombok.*;
 
 import java.util.Date;
 
-@Entity(name = "produto")
+@Entity()
 @Table(name = "produtos")
 @Getter
 @Setter
-@EqualsAndHashCode(of = "idProduto")
 @NoArgsConstructor
 @AllArgsConstructor
 public class produto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idProduto;
+    private Long ID;
     private String descricao;
     private Double valor;
+    @Column(name = "datacadastro")
     private Date dataCadastro;
 
 
     public produto(DadosCadastroProdutos dados) {
-
         this.descricao = dados.descricao();
         this.valor = dados.valor();
         this.dataCadastro = new Date();
-
-
     }
 }

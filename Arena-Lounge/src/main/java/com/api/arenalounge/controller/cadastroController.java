@@ -8,6 +8,7 @@ import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,25 +23,23 @@ public class cadastroController {
 
     @PostMapping("/cliente")
     @Transactional
-    public void cadastrarCliente(@RequestBody @Valid DadosCadastroCliente dados){
+    public ResponseEntity<String> cadastrarCliente(@RequestBody @Valid DadosCadastroCliente dados){
         service.cadastrarCliente(dados);
-        System.out.println(dados);
-
+        return ResponseEntity.ok("Cliente Cadastrado com Sucesso !");
     }
 
     @PostMapping("/produto")
     @Transactional
-    public void cadastrarProduto(@RequestBody @Valid DadosCadastroProdutos dados){
+    public ResponseEntity<String> cadastrarProduto(@RequestBody @Valid DadosCadastroProdutos dados){
         service.cadastrarProduto(dados);
-        System.out.println(dados);
-
+        return ResponseEntity.ok("Produto Cadastrado com Sucesso");
     }
 
     @PostMapping("/pedido")
     @Transactional
-    public void cadastrarPedido(@RequestBody @Valid DadosCadastroPedidos dados){
+    public ResponseEntity<String> cadastrarPedido(@RequestBody @Valid DadosCadastroPedidos dados){
         service.cadastrarPedido(dados);
-        System.out.println(dados);
+        return ResponseEntity.ok("Pedido Cadastrado com Sucesso");
 
     }
 

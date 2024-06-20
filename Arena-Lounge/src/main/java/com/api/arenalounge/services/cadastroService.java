@@ -9,7 +9,7 @@ import com.api.arenalounge.pedido.pedido;
 import com.api.arenalounge.produto.DadosCadastroProdutos;
 import com.api.arenalounge.produto.produtoRepository;
 import com.api.arenalounge.produto.produto;
-import jakarta.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +18,6 @@ public class cadastroService {
 
     @Autowired
     private clienteRepository clienteRepository ;
-
     @Autowired
     private produtoRepository produtoRepository;
     @Autowired
