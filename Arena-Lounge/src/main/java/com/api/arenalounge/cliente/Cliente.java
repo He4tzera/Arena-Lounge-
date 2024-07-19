@@ -10,7 +10,7 @@ import java.util.Date;
 @NoArgsConstructor
 @Entity
 @Table(name = "Clientes")
-public class cliente {
+public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long   id;
@@ -20,7 +20,7 @@ public class cliente {
     @Column(name = "datacadastro")
     private Date   dataCadastro;
 
-    public cliente( DadosCadastroCliente dados) {
+    public Cliente(DadosCadastroCliente dados) {
         this.cpf = dados.cpf();
         this.nome = dados.nome();
         this.telefone = dados.telefone();

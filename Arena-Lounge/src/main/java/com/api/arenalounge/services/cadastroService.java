@@ -1,38 +1,38 @@
 package com.api.arenalounge.services;
-
 import com.api.arenalounge.cliente.DadosCadastroCliente;
-import com.api.arenalounge.cliente.cliente;
-import com.api.arenalounge.cliente.clienteRepository;
-import com.api.arenalounge.pedido.pedidoRepository;
-import com.api.arenalounge.pedido.DadosCadastroPedidos;
-import com.api.arenalounge.pedido.pedido;
+import com.api.arenalounge.cliente.Cliente;
+import com.api.arenalounge.cliente.ClienteRepository;
+import com.api.arenalounge.pedido.*;
 import com.api.arenalounge.produto.DadosCadastroProdutos;
-import com.api.arenalounge.produto.produtoRepository;
-import com.api.arenalounge.produto.produto;
-
+import com.api.arenalounge.produto.ProdutoRepository;
+import com.api.arenalounge.produto.Produto;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class cadastroService {
-
     @Autowired
-    private clienteRepository clienteRepository ;
+    private ClienteRepository clienteRepository ;
     @Autowired
-    private produtoRepository produtoRepository;
+    private ProdutoRepository produtoRepository;
     @Autowired
-    private pedidoRepository pedidoRepository ;
+    private PedidoRepository pedidoRepository;
+    @Autowired
+    private ItensPedidoRepository itensPedidoRepository;
 
     public void cadastrarCliente(DadosCadastroCliente dados){
-        clienteRepository.save(new cliente(dados));
+        clienteRepository.save(new Cliente(dados));
     }
 
     public void cadastrarProduto(DadosCadastroProdutos dados){
-       produtoRepository.save(new produto(dados));
+       produtoRepository.save(new Produto(dados));
     }
 
-    public void cadastrarPedido(DadosCadastroPedidos dados) {
-        pedidoRepository.save(new pedido(dados));
-
+    public void cadastrarPedido(DadosCadastroPedido dados){
+        pedidoRepository.save(new Pedido(dados));
     }
+
 }

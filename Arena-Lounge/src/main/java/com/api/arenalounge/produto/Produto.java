@@ -11,17 +11,17 @@ import java.util.Date;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class produto {
+public class Produto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long ID;
+    private Long id;
     private String descricao;
     private Double valor;
     @Column(name = "datacadastro")
     private Date dataCadastro;
 
 
-    public produto(DadosCadastroProdutos dados) {
+    public Produto(DadosCadastroProdutos dados) {
         this.descricao = dados.descricao();
         this.valor = dados.valor();
         this.dataCadastro = new Date();

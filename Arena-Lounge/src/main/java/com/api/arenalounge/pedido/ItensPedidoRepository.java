@@ -1,9 +1,8 @@
-package com.api.arenalounge.cliente;
+package com.api.arenalounge.pedido;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-
 @Repository
-public interface clienteRepository extends JpaRepository<cliente, Long> {
+public interface ItensPedidoRepository extends JpaRepository<ItensPedido, Long> {
 }
